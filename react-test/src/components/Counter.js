@@ -21,6 +21,7 @@ class Counter extends PureComponent {
     constructor(props){
         super(props);
         this.setRandomColor = this.setRandomColor.bind(this);
+        this.temp = this.temp.bind(this);
     }
 
     setRandomColor(){
@@ -30,6 +31,12 @@ class Counter extends PureComponent {
             ,Math.floor((Math.random()*55) + 200)
         ]
         this.props.handleSetcolor(color);
+    }
+    //데이터를 서버에서 받아오는 부분을 이렇게 처리 해야할듯.
+    temp(){
+        console.log("temp!!!");
+        this.props.handleIncrement();
+        
     }
 
     render() {
@@ -43,7 +50,7 @@ class Counter extends PureComponent {
             <div style={style}>
                 <Value number={this.props.number}></Value>
                 <Control 
-                    onPlus={this.props.handleIncrement}
+                    onPlus={this.temp}
                     onSubtract={this.props.handleDecrement}
                     onRandomizeColor={this.setRandomColor}
                 ></Control>
