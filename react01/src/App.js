@@ -8,7 +8,7 @@ import ScrollVBox from './event/ScrollBox';
 import Maptest from './event/Maptest';
 import IterrationSample from './event/IterrationSample';
 import LifeCycle from './event/LifeCycle';
-
+import CssModules from './style/CssModulel';
 function getRandomColor(){
     return '#' + Math.floor(Math.random() * 16777215).toString(16);
 }
@@ -58,8 +58,9 @@ export default class App extends Component {
         {/* <button onClick={() => this.scrollVBox.handleScrollBox()}>내리기</button> */}
         {/* <Maptest/> */}
         {/* <IterrationSample/> */}
-        <button onClick={this.handleClick}>랜덤 색상</button>
-        <LifeCycle color={this.state.color}/>
+        {/* <button onClick={this.handleClick}>랜덤 색상</button> */}
+        {/* <LifeCycle color={this.state.color}/> */}
+        <CssModules/>
       </Fragment>
     );
   }
