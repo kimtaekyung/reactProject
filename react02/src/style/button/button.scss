@@ -1,0 +1,6 @@
+@import '../common.scss';
+
+.button{
+    background : green;
+    @include place-at-center();
+}

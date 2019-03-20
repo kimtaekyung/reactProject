@@ -1,0 +1,15 @@
+
+@import '../common.scss';
+
+
+$header_height : 200px;
+.header{
+    background-color: blue;
+    height: $header_height;
+    width: 100%;
+    .label{
+        background-color: red;
+        @include place-at-center();
+        width: 200px
+    }
+}

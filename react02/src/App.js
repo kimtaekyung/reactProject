@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import Test from './component/Test';
-
+import React, { Component,Fragment } from 'react';
+import Header from './component/header/Header';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Test></Test>
-      </div>
+      <Fragment>
+        <Header></Header>
+      </Fragment>
     );
   }
 }
