@@ -2,22 +2,16 @@ import React, { Component } from 'react';
 import PageTemplate from './PageTemplate';
 import TodoInput from './TodoInput';
 import TotoList from './TodoList';
+
+const initalTodos = new Array(500).fill(0).map(
+    (foo,index) => ({id : index, content : `일정${index}` ,done: false})
+);
+
 class App extends Component {
 
     state = {
         input : '',
-        todos : [
-            {
-                id : 0,
-                content: '리액트 공부하기',
-                done : true
-            },
-            {
-                id : 1,
-                content: '리액트 공부하기',
-                done : false
-            }
-        ]
+        todos : initalTodos
     }
 
     id = 1;
