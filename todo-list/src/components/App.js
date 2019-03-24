@@ -3,11 +3,95 @@ import PageTemplate from './PageTemplate';
 import TodoInput from './TodoInput';
 import TotoList from './TodoList';
 class App extends Component {
+
+    state = {
+        input : '',
+        todos : [
+            {
+                id : 0,
+                content: '리액트 공부하기',
+                done : true
+            },
+            {
+                id : 1,
+                content: '리액트 공부하기',
+                done : false
+            }
+        ]
+    }
+
+    id = 1;
+    getId = () => {
+        return ++this.id;
+    }
+
+    handleChange = (e) => {
+        const {value} = e.target;
+        this.setState({
+            input : value
+        });
+    };
+
+    handleInsert = () => {
+        const {input,todos} = this.state;
+
+        const newTodo = {
+            id : this.getId()
+            ,content : input
+            ,done : false
+        };
+
+        this.setState({
+            todos : [...todos,newTodo]
+            ,input:''
+        });
+    }
+
+    handleToggle = (id) => {    
+        const {todos} = this.state;
+
+        const index = todos.findIndex(todo => todo.id === id);
+
+        const toggled = {
+            ...todos[index]
+            ,done: !todos[index].done
+        }
+
+        this.setState({
+            todos : [
+                ...todos.slice(0,index)
+                ,toggled
+                ,...todos.slice(index + 1,todos.length)
+            ]
+        });
+
+
+    }
+
+    handleRemove = (id) =>{
+        const { todos } = this.state;
+        const index = todos.findIndex( todo => todo.id === id);
+        this.setState({
+            todos : [
+                ...todos.slice(0,index)
+                ,...todos.slice(index + 1, todos.length)
+            ]
+        });
+    }
     render() {
+        const {
+            handleChange
+            ,handleInsert
+            ,handleToggle
+            ,handleRemove
+        } = this;
+
+        const {input, todos} = this.state;
+
         return (
             <PageTemplate>
-                <TodoInput/>
-                <TotoList/>
+                <TodoInput onChange={handleChange} value={input} onInsert={handleInsert}/>
+                <TotoList todos = {todos} onToggle={handleToggle} onRemove={handleRemove}/>
             </PageTemplate>
         );
     }
