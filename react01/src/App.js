@@ -15,9 +15,15 @@ function getRandomColor(){
 
 export default class App extends Component {
 
-  state = {
-    page : 1,
-    color : '#000000'
+  _state = {
+    page: 1,
+    color: '#000000'
+  };
+  get state() {
+    return this._state;
+  }
+  set state(value) {
+    this._state = value;
   }
 
   handleClick = () => {

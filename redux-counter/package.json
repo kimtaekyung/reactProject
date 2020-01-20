@@ -1,13 +1,16 @@
 {
-  "name": "react01",
+  "name": "redux-counter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classnames": "^2.2.6",
     "node-sass": "^4.13.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
-    "sass-loader": "^7.3.1"
+    "redux": "^4.0.1",
+    "sass-loader": "^7.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
