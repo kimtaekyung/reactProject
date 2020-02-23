@@ -15,7 +15,7 @@ const App = () => {
 
     return (
         <div>
-            <h1>React Redux</h1>
+            <h1>React Thunk Counter</h1>
 
             <NavLink activeStyle={myStyle} to="/normal_counter">[NormalCounter]</NavLink>
             <NavLink activeStyle={myStyle} to="/counter_container">[CounterContainer]</NavLink>

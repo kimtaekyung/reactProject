@@ -4,8 +4,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // 화면형태를 구현하고 있는 컴포넌트
 import ReduxCounter from '../components/ReduxCounter';
-// 액션이 발생한 경우 호출할 함수
-import { plusAction, minusAction } from '../modules/Counter';
+// 모듈기능 참조
+import * as counterModule from '../modules/Counter';
 
 const CounterContainerHook = () => {
     /** Hook 기능을 통해 상태값 가져오기 */
@@ -28,8 +28,8 @@ const CounterContainerHook = () => {
         <ReduxCounter 
             number={number} 
             color={color} 
-            onPlusClick={() => dispatch(plusAction())} 
-            onMinusClick={() => dispatch(minusAction())} 
+            onPlusClick={() => dispatch(counterModule.plusAsync())} 
+            onMinusClick={() => dispatch(counterModule.minusAsync())} 
         />);
 };
 

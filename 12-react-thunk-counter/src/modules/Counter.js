@@ -67,14 +67,19 @@ const MyCounterModule = handleActions(myCountReducer, initialState);
 // 생성된 스토어를 내보낸다.
 export default MyCounterModule;
 
+
+/** 비동기 작업을 수행할 함수 정의 - 이 안에서 action함수들을 dispatch(호출)한다. */
+// 이렇게 정의된 함수들은 컴포넌트의 props에 포함된다.
 export const plusAsync = () => dispatch => {
+    // 1초 뒤 액션 디스패치
     setTimeout(() => {
         dispatch(plusAction());
-    },1000);
+    }, 1000);
 };
 
 export const minusAsync = () => dispatch => {
+    // 1초 뒤 액션 디스패치
     setTimeout(() => {
         dispatch(minusAction());
-    },1000);
+    }, 1000);
 };
